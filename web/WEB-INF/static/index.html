@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ng-app="AngularSpringApp">
+<head>
+    <meta charset="utf-8">
+    <title>Employee Database</title>
+    <link rel="stylesheet" href="resources/supported-libs/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="resources/supported-libs/bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="resources/site/css/main.css"/>
+</head>
+<body>
+
+<!-- START  Navigation Bar HTML -->
+
+<div class="navbar navbar-default navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a href="#" class="navbar-brand">
+                Sample Project
+            </a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#/employee">Employee</a>
+                </li>
+                <li>
+                    <a href="#">Student</a>
+                </li>
+                <li>
+                    <a href="#">Courses</a>
+                </li>
+                <li>
+                    <a href="#">Online</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Guest
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings</a>
+                        </li>
+                        <li class="divider">
+                            This is a divider.
+                        </li>
+                        <li>
+                            <a href="#">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- END    Navigation Bar HTML -->
+
+<div class="container" ng-controller="EmpCtrl">
+    <div ng-view>
+        ----------------- Partial Page Layout Goes Here. -----------------
+    </div>
+</div>
+
+<div class="site-footer">
+    <p class="text-muted">
+        <span class="glyphicon glyphicon-copyright-mark"></span> 2014-2015, Prime Productions Inc, India
+    </p>
+
+    <p class="text-muted">
+        <a href="#">
+            <span class="glyphicon glyphicon-arrow-up"></span> Back to Top.
+        </a>
+    </p>
+</div>
+
+
+<script src="resources/supported-libs/bower_components/jquery/dist/jquery.js"></script>
+<script src="resources/supported-libs/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="resources/supported-libs/bower_components/angular/angular.js"></script>
+<script src="resources/supported-libs/bower_components/angular-route/angular-route.js"></script>
+<script src="resources/supported-libs/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="resources/supported-libs/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="resources/supported-libs/bower_components/angular-loader/angular-loader.js"></script>
+
+
+<script src="resources/site/navbar-active.js"></script>
+<script src="resources/site/app.js"></script>
+<script src="resources/site/controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+import com.sun.org.apache.regexp.internal.recompile
+import sun.security.krb5.internal.crypto.crc32
+
+buildscript {
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://repo.spring.io/libs-milestone'
+        }
+        mavenCentral()
+    }
+
+
+    dependencies {
+
+    }
+
+}
+
+
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "eclipse"
+
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'http://repo.spring.io/libs-milestone'
+    }
+    mavenCentral()
+}
+
+
+dependencies {
+    compile("org.springframework:spring-webmvc:4.0.2.RELEASE")
+    compile("org.springframework:spring-context:4.0.2.RELEASE")
+    compile("org.springframework:spring-context-support:4.0.2.RELEASE")
+    compile("com.fasterxml.jackson.core:jackson-databind:2.3.1")
+    compile("org.apache.velocity:velocity:1.6.2")
+}
