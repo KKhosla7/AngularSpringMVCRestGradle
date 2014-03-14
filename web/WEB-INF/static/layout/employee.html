@@ -1,11 +1,16 @@
+<div class="alert alert-danger" ng-show="error">
+    {{ errorMessage }}
+</div>
+
+
 <!-- -->
 <div class="container">
     <div class="row">
 
-        <div class="col-sm-4 col-lg-offset-4">
-            <div class="panel-primary">
-                <div class="panel-title">
-                    Employee Details
+        <div class="col-sm-4 pull-right">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {{ pageName }} Details
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal">
@@ -32,8 +37,9 @@
                             <input type="text" class="form-control" placeholder="Project" ng-model="emp.project"/>
                         </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email" ng-model="emp.email"/>
+                        <div class="form-group input-group">
+                            <input type="email" class="form-control" placeholder="Email" ng-model="emp.email"/>
+                            <span class="input-group-addon">@</span>
                         </div>
 
                         <div class="form-group">
@@ -42,7 +48,7 @@
                                     ng-disabled="!emp.firstName || !emp.lastName || !emp.designation || !emp.project || !emp.email"
                                     ng-hide="editMode">Add Employee
                             </button>
-                            <button class="btn btn-success"
+                            <button class="btn btn-success" ng-click="updateEamployeeDetails(emp)"
                                     ng-disabled="!emp.firstName || !emp.lastName || !emp.designation || !emp.project || !emp.email"
                                     ng-show="editMode">Save Employee
                             </button>
@@ -53,14 +59,12 @@
             </div>
         </div>
 
-        <div class="col-sm-7 col-sm-offset-3">
-            <div>
-                <span ng-show="employeeList.length == 0">No records found.</span>
-
-                <div class="form-group">
-                    <input type="text" class="form-control col-sm-1" placeholder="Filter" ng-model="searchText"/>
-                </div>
+        <div class="col-sm-7 pull-left">
+            <div class="form-group" ng-show="employeeList.length > 2">
+                <input type="text" class="form-control" style="width: 50%; margin-bottom: 10px; float: right!important;"
+                       placeholder="Filter" ng-model="searchText"/>
             </div>
+            <span ng-show="employeeList.length == 0">No records found.</span>
 
             <table class="table table-bordered table-responsive">
                 <thead>
@@ -103,14 +107,18 @@
                         {{ employee.email }}
                     </td>
                     <td>
-                        <button class="btn btn-danger btn-sm glyphicon glyphicon-remove"></button>
-                        <button class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></button>
+                        <button ng-click="removeEmployee(employee.id)"
+                                class="btn btn-danger btn-sm glyphicon glyphicon-remove"></button>
+                        <button ng-click="editEmployeeDetails(employee)"
+                                class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></button>
                     </td>
                 </tr>
                 </tbody>
             </table>
 
-            <button class="btn btn-danger pull-right">Remove All Entries</button>
+            <button ng-click="removeAllEmployee()" class="btn btn-danger pull-right" ng-show="employeeList.length > 1">
+                Remove All Entries
+            </button>
         </div>
     </div>
 </div>

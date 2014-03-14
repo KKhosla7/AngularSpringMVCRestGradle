@@ -15,7 +15,7 @@ public interface EmployeeService {
 
     public void addEmployee(Employee employee);
 
-    public void deleteEmployeeById(Long id);
+    public void deleteEmployeeById(Long id) throws Exception;
 
     public void deleteAllEmployees();
 

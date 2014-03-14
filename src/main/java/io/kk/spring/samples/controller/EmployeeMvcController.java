@@ -37,14 +37,14 @@ public class EmployeeMvcController {
     @RequestMapping(value = "/employee/removeEmployee/{employeeId}", method = RequestMethod.DELETE)
     public
     @ResponseBody
-    void removeEmployee(@PathVariable("employeeId") Long employeeId) {
+    void removeEmployee(@PathVariable("employeeId") Long employeeId) throws Exception {
         employeeService.deleteEmployeeById(employeeId);
     }
 
     @RequestMapping(value = "/employee/updateEmployeeDetails", method = RequestMethod.PUT)
     public
     @ResponseBody
-    void updateRailwayStation(@RequestBody Employee employee) {
+    void updateEmployeeDetails(@RequestBody Employee employee) {
         employeeService.updateEmployee(employee);
     }
 

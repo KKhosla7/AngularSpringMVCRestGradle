@@ -36,9 +36,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void deleteEmployeeById(Long id) {
+    public void deleteEmployeeById(Long id) throws Exception {
         Employee employeeRecordFound = findEmployeeById(id);
-        employeeList.remove(employeeRecordFound);
+        if (employeeRecordFound != null)
+            employeeList.remove(employeeRecordFound);
+        else
+            throw new Exception("Crap");
     }
 
     @Override
