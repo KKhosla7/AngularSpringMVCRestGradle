@@ -1,0 +1,109 @@
+<div class="alert alert-danger" ng-show="error">
+    {{ errorMessage }}
+</div>
+
+
+<!-- -->
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-4 pull-right">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {{ pageName }} Details
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="First Name"
+                                   ng-model="student.firstName"/>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Middle Name"
+                                   ng-model="student.middleName"/>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Last Name"
+                                   ng-model="student.lastName"/>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Class/Standard"
+                                   ng-model="student.standard"/>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="reset" class="btn btn-default">Reset</button>
+
+                            <button class="btn btn-primary" ng-click="addStudent(student)"
+                                    ng-disabled="!student.firstName || !student.lastName || !student.standard"
+                                    ng-hide="editMode">Add Student
+                            </button>
+
+                            <button class="btn btn-success" ng-click="updateStudentDetails(student)"
+                                    ng-disabled="!student.firstName || !student.lastName || !student.standard"
+                                    ng-show="editMode">Save Student
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-7 pull-left">
+            <div class="form-group" ng-show="studentList.length > 2">
+                <input type="text" class="form-control" style="width: 50%; margin-bottom: 10px; float: right!important;"
+                       placeholder="Filter" ng-model="searchText"/>
+            </div>
+            <span ng-show="studentList.length == 0">No records found.</span>
+
+            <table class="table table-bordered table-responsive">
+                <thead>
+                <tr>
+                    <th class="text-center">
+                        S.No
+                    </th>
+                    <th class="text-center">
+                        Student Name
+                    </th>
+                    <th class="text-center">
+                        Standard
+                    </th>
+                    <th class="text-center" ng-show="studentList.length > 0">
+                        Option(s)
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="student in studentList | filter:searchText | orderBy:predicate">
+                    <td>
+                        {{ student.id }}
+                    </td>
+                    <td>
+                        {{ student.firstName }} {{ student.middleName }} {{ student.lastName }}
+                    </td>
+                    <td>
+                        {{ student.standard }}
+                    </td>
+                    <td>
+                        <button ng-click="removeStudent(student.id)"
+                                class="btn btn-danger btn-sm glyphicon glyphicon-remove"></button>
+                        <button ng-click="editStudentDetails(student)"
+                                class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button ng-show="studentList.length > 1" ng-click="removeAllStudents()" class="btn btn-danger pull-right">
+                Remove All Entries
+            </button>
+        </div>
+    </div>
+</div>
+
+<!---->
