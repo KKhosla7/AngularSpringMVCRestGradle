@@ -4,62 +4,10 @@
 
 
 <!-- -->
-<div class="container">
+<div class="container-fluid">
     <div class="row">
 
-        <div class="col-sm-4 pull-right">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    {{ pageName }} Details
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal">
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name" ng-model="emp.firstName"/>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Middle Name"
-                                   ng-model="emp.middleName"/>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name" ng-model="emp.lastName"/>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Designation"
-                                   ng-model="emp.designation"/>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Project" ng-model="emp.project"/>
-                        </div>
-
-                        <div class="form-group input-group">
-                            <input type="email" class="form-control" placeholder="Email" ng-model="emp.email"/>
-                            <span class="input-group-addon">@</span>
-                        </div>
-
-                        <div class="form-group">
-                            <button type="reset" class="btn btn-default">Reset</button>
-                            <button class="btn btn-primary" ng-click="addEmployee(emp)"
-                                    ng-disabled="!emp.firstName || !emp.lastName || !emp.designation || !emp.project || !emp.email"
-                                    ng-hide="editMode">Add Employee
-                            </button>
-                            <button class="btn btn-success" ng-click="updateEamployeeDetails(emp)"
-                                    ng-disabled="!emp.firstName || !emp.lastName || !emp.designation || !emp.project || !emp.email"
-                                    ng-show="editMode">Save Employee
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-sm-7 pull-left">
+        <div class="col-sm-8">
             <div class="form-group" ng-show="employeeList.length > 2">
                 <input type="text" class="form-control" style="width: 50%; margin-bottom: 10px; float: right!important;"
                        placeholder="Filter" ng-model="searchText"/>
@@ -84,7 +32,7 @@
                     <th class="text-center">
                         Email Id
                     </th>
-                    <th class="text-center" ng-show="employeeList.length > 0">
+                    <th class="text-center col-sm-2" ng-show="employeeList.length > 0">
                         Option(s)
                     </th>
                 </tr>
@@ -106,7 +54,7 @@
                     <td>
                         {{ employee.email }}
                     </td>
-                    <td>
+                    <td class="col-sm-2">
                         <button ng-click="removeEmployee(employee.id)"
                                 class="btn btn-danger btn-sm glyphicon glyphicon-remove"></button>
                         <button ng-click="editEmployeeDetails(employee)"
@@ -119,6 +67,67 @@
             <button ng-click="removeAllEmployee()" class="btn btn-danger pull-right" ng-show="employeeList.length > 1">
                 Remove All Entries
             </button>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel-primary">
+                <div class="panel-heading">
+                    {{ pageName }} Details
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="employeeForm">
+
+                        <div class="form-group">
+                            <label class="label label-info">First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" ng-model="emp.firstName" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label label-info">Middle Name</label>
+                            <input type="text" class="form-control" placeholder="Middle Name" ng-model="emp.middleName"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label label-info">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name" ng-model="emp.lastName" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label label-info">Designation</label>
+                            <input type="text" class="form-control" placeholder="Designation" ng-model="emp.designation" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label label-info">Project</label>
+                            <input type="text" class="form-control" placeholder="Project" ng-model="emp.project" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label label-info">Email</label>
+                            <div class="input-group">
+                                <input name="email" type="email" class="form-control" placeholder="Email" ng-minlength="5" ng-model="newUser.email" required />
+                                <span class="input-group-addon">@</span>
+                            </div>
+                            <small class="error help-block help-text" ng-show="employeeForm.email.$error.minlength || employeeForm.email.$error.email || employeeForm.email.$invalid">
+                                eg: example@gmail.com
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="reset" class="btn btn-default">Reset</button>
+                            <button class="btn btn-primary" ng-click="addEmployee(emp)"
+                                    ng-disabled="employeeForm.$invalid"
+                                    ng-hide="editMode">Add Employee
+                            </button>
+                            <button class="btn btn-success" ng-click="updateEamployeeDetails(emp)"
+                                    ng-disabled="employeeForm.$invalid"
+                                    ng-show="editMode">Save Employee
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

@@ -1,3 +1,38 @@
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/KT3KS9Aol4WfR6Vas8kNcg.woff) format('woff');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/9k-RPmcnxYEPm8CNFsH2gg.woff) format('woff');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/wkfQbvfT_02e2IWO3yYueQ.woff) format('woff');
+}
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Lato Black'), local('Lato-Black'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/BVtM30trf7q_jfqYeHfjtA.woff) format('woff');
+}
+
+
+body {
+    color: #333333;
+    font-family: Lato,Arial,Helvetica Neue,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .02em;
+}
+
+
 .site-footer {
     position: fixed;
     right: 0;
@@ -18,3 +53,125 @@
 .a:hover, .a:focus {
     text-decoration: none !important;
 }
+
+.brand-logo {
+    color: #8dc752 !important;
+    font-weight: bolder !important;
+    font-size: x-large !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+.white-btn {
+    margin: 8px 0 0 0;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    padding: 5px 35px 6px 35px;
+    color: #434343;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #ffffff;
+}
+
+.white-btn:hover {
+    transition: 0.2s;
+}
+
+.blue-btn:hover {
+    transition: 0.2s;
+}
+
+.green-btn:hover {
+    transition: 0.2s;
+}
+
+a:active, a:hover {
+    outline: 0;
+}
+
+.blue-btn {
+    margin: 8px 0 0 0;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    padding: 5px 35px 6px 35px;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #1776bd;
+}
+
+.green-btn {
+    margin: 8px 0 0 0;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    padding: 5px 35px 6px 35px;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: #69b40f;
+}
+
+.help-text {
+    font-family: Lato,Arial,Helvetica Neue,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+
+/*
+input[required] {
+    border-color: red;
+}
+*/
+
+/*input.ng-invalid.ng-dirty {
+    border-color: red;
+}*/
+/*
+input.ng-valid {
+    border-color: #008000;
+}*/
+
+input.ng-pristine {
+
+}
+input.ng-dirty {
+    border-color: red;
+}
+input.ng-valid {
+    border-color: #008000;
+}
+input.ng-invalid {
+    border-color: red;
+}
+
+
+.active {
+    color: #0000FF;
+}
+
+
+
+/*
+#69b40f
+#8ad036
+
+#1776bd
+
+*/

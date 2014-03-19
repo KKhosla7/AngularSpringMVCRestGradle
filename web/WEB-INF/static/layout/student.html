@@ -8,43 +8,47 @@
     <div class="row">
 
         <div class="col-sm-4 pull-right">
-            <div class="panel panel-primary">
+            <div class="panel-primary">
                 <div class="panel-heading">
                     {{ pageName }} Details
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" name="studentForm">
 
                         <div class="form-group">
+                            <label class="label label-info">First Name</label>
                             <input type="text" class="form-control" placeholder="First Name"
-                                   ng-model="student.firstName"/>
+                                   ng-model="student.firstName" required />
                         </div>
 
                         <div class="form-group">
+                            <label class="label label-info">Middle Name</label>
                             <input type="text" class="form-control" placeholder="Middle Name"
                                    ng-model="student.middleName"/>
                         </div>
 
                         <div class="form-group">
+                            <label class="label label-info">Last Name</label>
                             <input type="text" class="form-control" placeholder="Last Name"
-                                   ng-model="student.lastName"/>
+                                   ng-model="student.lastName" required />
                         </div>
 
                         <div class="form-group">
+                            <label class="label label-info">Class/Standard</label>
                             <input type="number" class="form-control" placeholder="Class/Standard"
-                                   ng-model="student.standard"/>
+                                   ng-model="student.standard" required />
                         </div>
 
                         <div class="form-group">
                             <button type="reset" class="btn btn-default">Reset</button>
 
                             <button class="btn btn-primary" ng-click="addStudent(student)"
-                                    ng-disabled="!student.firstName || !student.lastName || !student.standard"
+                                    ng-disabled="studentForm.$invalid"
                                     ng-hide="editMode">Add Student
                             </button>
 
                             <button class="btn btn-success" ng-click="updateStudentDetails(student)"
-                                    ng-disabled="!student.firstName || !student.lastName || !student.standard"
+                                    ng-disabled="studentForm.$invalid"
                                     ng-show="editMode">Save Student
                             </button>
                         </div>

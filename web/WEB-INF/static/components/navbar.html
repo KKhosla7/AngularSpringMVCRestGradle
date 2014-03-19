@@ -8,17 +8,18 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a href="#" class="navbar-brand">
+            <a href="#" class="navbar-brand brand-logo">
                 Sample Project
             </a>
         </div>
 
         <div class="navbar-collapse collapse">
+
             <ul class="nav navbar-nav">
-                <li>
+                <li  ng-class="{active: activetab=='/employee'}">
                     <a href="#/employee">Employee</a>
                 </li>
-                <li>
+                <li  ng-class="{active: activetab=='/student'}">
                     <a href="#/student">Student</a>
                 </li>
                 <!-- <li>
@@ -36,17 +37,17 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
+                        <li ng-class="{active: activetab=='/profile'}">
                             <a href="#/profile">Profile</a>
                         </li>
-                        <li>
+                        <li ng-class="{active: activetab=='/settings'}">
                             <a href="#/settings">Settings</a>
                         </li>
                         <li class="divider">
                             This is a divider.
                         </li>
                         <li>
-                            <a href="#">Logout</a>
+                            <a href="#/logout">Logout</a>
                         </li>
                     </ul>
                 </li>

@@ -1,44 +1,83 @@
 'use strict';
 
 
-var ProfileCtrl = function ($scope, $http) {
+var ProfileCtrl = function ($scope) {
+
+    $scope.pageName = "Profile";
+    $scope.profile = {};
+    $scope.accountProfile = {};
+    $scope.editMode = false;
+    $scope.editModeAccount = false;
+
+    $scope.profile.firstName = 'Karan';
+    $scope.profile.middleName = '';
+    $scope.profile.lastName = 'Khosla';
+    $scope.profile.email = 'test@test';
+
+    $scope.accountProfile.oldPassword = 'test123';
+    $scope.accountProfile.newPassword = 'test123';
+
+    $scope.editAccountProfile = function() {
+        $scope.editModeAccount = true;
+    };
+
+    $scope.saveAccountProfile = function() {
+        $scope.editModeAccount = false;
+    };
+
+    $scope.editProfile = function() {
+        $scope.editMode = true;
+    };
+
+    $scope.saveProfile = function() {
+        $scope.editMode = false;
+    };
+};
+
+var SettingsCtrl = function ($scope) {
+
+    $scope.pageName = "Settings";
+
+};
+
+var LogoutCtrl = function ($scope ,$location) {
+
+    $scope.pageName = "Logout";
+
+    $location.path("/login");
+
+};
+
+var LoginCtrl = function ($scope) {
 
     $scope.pageName = "Login";
 
 };
 
-var SettingsCtrl = function ($scope, $http) {
-
-    $scope.pageName = "Login";
-
-};
-
-var LoginCtrl = function ($scope, $http) {
-
-    $scope.pageName = "Login";
-
-};
-
-var AccountCreateCtrl = function ($scope, $http) {
+var AccountCreateCtrl = function ($scope) {
 
     $scope.pageName = "AccountCreation";
 
+    $scope.createForm = function($location) {
+        $location.path("/");
+    };
+
 };
 
-var ForgotCtrl = function ($scope, $http) {
+var ForgotCtrl = function ($scope) {
 
     $scope.pageName = "Forgot";
 
 };
 
-var OnlineCtrl = function ($scope, $http) {
+var OnlineCtrl = function ($scope) {
 
     $scope.pageName = "Online";
 
 };
 
 
-var CourseCtrl = function ($scope, $http) {
+var CourseCtrl = function ($scope) {
 
     $scope.pageName = "Courses";
 

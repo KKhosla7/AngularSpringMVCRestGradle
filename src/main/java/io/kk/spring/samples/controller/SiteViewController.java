@@ -26,16 +26,6 @@ public class SiteViewController {
         return "layout/student";
     }
 
-    @RequestMapping("layout/course")
-    public String getCoursePartialPage() {
-        return "layout/course";
-    }
-
-    @RequestMapping("layout/online")
-    public String getOnlinePartialPage() {
-        return "layout/online";
-    }
-
     @RequestMapping("components/navbar")
     public String getNavbar() {
         return "components/navbar";
